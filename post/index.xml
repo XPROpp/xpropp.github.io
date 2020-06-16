@@ -6,10 +6,19 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Jun 2020 17:21:42 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2020 17:28:29 +0800</lastBuildDate>
     
 	<atom:link href="https://xpropp.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>变态青蛙跳</title>
+      <link>https://xpropp.github.io/post/%E5%8F%98%E6%80%81%E9%9D%92%E8%9B%99%E8%B7%B3/</link>
+      <pubDate>Tue, 16 Jun 2020 17:28:29 +0800</pubDate>
+      
+      <guid>https://xpropp.github.io/post/%E5%8F%98%E6%80%81%E9%9D%92%E8%9B%99%E8%B7%B3/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>丑数</title>
@@ -17,7 +26,10 @@
       <pubDate>Tue, 16 Jun 2020 17:21:42 +0800</pubDate>
       
       <guid>https://xpropp.github.io/post/%E4%B8%91%E6%95%B0/</guid>
-      <description></description>
+      <description>本题知识点： 穷举
+题目描述:
+把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。
+# -*- coding:utf-8 -*- class Solution: def GetUglyNumber_Solution(self, index): # write code here if index &amp;lt; 1: return 0 uglyList = [1] twoPointer = 0 therePointer = 0 fivePointer = 0 count = 1 while count != index: minValue = min(2*uglyList[twoPointer],3*uglyList[therePointer],5*uglyList[fivePointer]) uglyList.append(minValue) count += 1 if minValue == 2*uglyList[twoPointer]: twoPointer +=1 if minValue == 3*uglyList[therePointer]: therePointer +=1 if minValue == 5*uglyList[fivePointer]: fivePointer +=1 return uglyList[count-1] </description>
     </item>
     
     <item>
