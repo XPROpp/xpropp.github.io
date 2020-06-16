@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>对称的二叉树 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://xpropp.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="对称的二叉树"/>
+<meta name="twitter:description" content="本题知识点： 树
+题目描述: 请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+# -*- coding:utf-8 -*- # class TreeNode: # def __init__(self, x): # self.val = x # self.left = None # self.right = None class Solution: def isSymmetrical(self, pRoot): # write code here def isMirror(left,right): if left == None and right == None: return True elif left == None or right == None: return False if left.val != right.val: return False ret1 = isMirror(left.left,right.right) ret2 = isMirror(left.right,right.left) return ret1 and ret2 if pRoot == None: return True return isMirror(pRoot."/>
+
+    <meta property="og:title" content="对称的二叉树" />
+<meta property="og:description" content="本题知识点： 树
+题目描述: 请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。
+# -*- coding:utf-8 -*- # class TreeNode: # def __init__(self, x): # self.val = x # self.left = None # self.right = None class Solution: def isSymmetrical(self, pRoot): # write code here def isMirror(left,right): if left == None and right == None: return True elif left == None or right == None: return False if left.val != right.val: return False ret1 = isMirror(left.left,right.right) ret2 = isMirror(left.right,right.left) return ret1 and ret2 if pRoot == None: return True return isMirror(pRoot." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xpropp.github.io/post/%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/" />
+<meta property="article:published_time" content="2020-06-16T15:41:53+08:00" />
+<meta property="article:modified_time" content="2020-06-16T15:41:53+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://xpropp.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">对称的二叉树</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jun 16, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <p><strong>本题知识点： 树</strong></p>
+<h4 id="题目描述">题目描述:</h4>
+<p>请实现一个函数，用来判断一颗二叉树是不是对称的。注意，如果一个二叉树同此二叉树的镜像是同样的，定义其为对称的。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding:utf-8 -*-</span>
+<span style="color:#75715e"># class TreeNode:</span>
+<span style="color:#75715e">#     def __init__(self, x):</span>
+<span style="color:#75715e">#         self.val = x</span>
+<span style="color:#75715e">#         self.left = None</span>
+<span style="color:#75715e">#         self.right = None</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isSymmetrical</span>(self, pRoot):
+        <span style="color:#75715e"># write code here</span>
+        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">isMirror</span>(left,right):
+            <span style="color:#66d9ef">if</span> left <span style="color:#f92672">==</span> None <span style="color:#f92672">and</span> right <span style="color:#f92672">==</span> None:
+                <span style="color:#66d9ef">return</span> True
+            <span style="color:#66d9ef">elif</span> left <span style="color:#f92672">==</span> None <span style="color:#f92672">or</span> right <span style="color:#f92672">==</span> None:
+                <span style="color:#66d9ef">return</span> False
+            <span style="color:#66d9ef">if</span> left<span style="color:#f92672">.</span>val <span style="color:#f92672">!=</span> right<span style="color:#f92672">.</span>val:
+                <span style="color:#66d9ef">return</span> False
+            ret1 <span style="color:#f92672">=</span> isMirror(left<span style="color:#f92672">.</span>left,right<span style="color:#f92672">.</span>right)
+            ret2 <span style="color:#f92672">=</span> isMirror(left<span style="color:#f92672">.</span>right,right<span style="color:#f92672">.</span>left)
+            <span style="color:#66d9ef">return</span> ret1 <span style="color:#f92672">and</span> ret2
+        <span style="color:#66d9ef">if</span> pRoot <span style="color:#f92672">==</span> None:
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">return</span> isMirror(pRoot<span style="color:#f92672">.</span>left,pRoot<span style="color:#f92672">.</span>right)
+      
+</code></pre></div>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
