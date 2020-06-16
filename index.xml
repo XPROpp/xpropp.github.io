@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>https://xpropp.github.io/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Jun 2020 14:51:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://xpropp.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>token - 令牌</title>
+      <link>https://xpropp.github.io/post/blog/</link>
+      <pubDate>Tue, 16 Jun 2020 14:51:48 +0800</pubDate>
+      
+      <guid>https://xpropp.github.io/post/blog/</guid>
+      <description>token - 令牌
+JWT - json-web-token
+1，三大组成 1，header
+格式为字典-元数据格式如下
+{&amp;lsquo;alg&amp;rsquo;:&amp;lsquo;HS256&amp;rsquo;, &amp;lsquo;typ&amp;rsquo;:&amp;lsquo;JWT&amp;rsquo;} #alg代表要使用的 算法 #typ表明该token的类别 - 此处必须为 大写的 JWT 该部分数据需要转成json串并用base64 加密
+2，payload
+格式为字典-此部分分为公有声明和私有声明
+公共声明：JWT提供了内置关键字用于描述常见的问题
+此部分均为可选项，用户根据自己需求 按需添加key，常见公共声明如下：
+{&amp;lsquo;exp&amp;rsquo;:xxx, # Expiration Time 此token的过期时间的时间戳 &amp;lsquo;iss&amp;rsquo;:xxx，# (Issuer) Claim 指明此token的签发者 &amp;lsquo;aud&amp;rsquo;:xxx, #(Audience) Claim 指明此token的 &amp;lsquo;iat&amp;rsquo;:xxx, # (Issued At) Claim 指明此创建时间的时间戳 &amp;lsquo;aud&amp;rsquo;:xxx, # (Audience) Claim	指明此token签发面向群体 } 私有声明：用户可根据自己业务需求，添加自定义的key，例如如下：
+{&amp;lsquo;username&amp;rsquo;: &amp;lsquo;sunwukong&amp;rsquo;} 公共声明和私有声明均在同一个字典中；转成json串并用base64加密
+3，signature 签名
+签名规则如下：
+根据header中的alg确定 具体算法，以下用 HS256为例
+HS256(自定义的key , base64后的header + &amp;lsquo;.&amp;rsquo; + base64后的payload)
+解释：用自定义的key, 对base64后的header + &amp;lsquo;.</description>
+    </item>
+    
+  </channel>
+</rss>
