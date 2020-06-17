@@ -12,10 +12,12 @@
     
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="变态青蛙跳"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+# -*- coding:utf-8 -*- class Solution: def jumpFloorII(self, number): # write code here # f(n) = f(n-1)&#43;f(n-2)&#43;...&#43;f(1) # f(n-1) = f(n-2)&#43;...&#43;f(1) # f(n) = 2f(n-1) # f(1) = 1 n=1 if number == 1: return 1 ret = 1 a = 1 for i in range(2,number&#43;1): ret = 2 * a a=ret return ret #return pow(2,number-1) "/>
 
     <meta property="og:title" content="变态青蛙跳" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。
+# -*- coding:utf-8 -*- class Solution: def jumpFloorII(self, number): # write code here # f(n) = f(n-1)&#43;f(n-2)&#43;...&#43;f(1) # f(n-1) = f(n-2)&#43;...&#43;f(1) # f(n) = 2f(n-1) # f(1) = 1 n=1 if number == 1: return 1 ret = 1 a = 1 for i in range(2,number&#43;1): ret = 2 * a a=ret return ret #return pow(2,number-1) " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://xpropp.github.io/post/%E5%8F%98%E6%80%81%E9%9D%92%E8%9B%99%E8%B7%B3/" />
 <meta property="article:published_time" content="2020-06-16T17:28:29+08:00" />
@@ -50,11 +52,29 @@
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          0 min read
+          1 min read
         </div></div>
     </header>
     <div class="post-content">
-      
+      <p>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding:utf-8 -*-</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">jumpFloorII</span>(self, number):
+        <span style="color:#75715e"># write code here</span>
+        <span style="color:#75715e"># f(n) = f(n-1)+f(n-2)+...+f(1)</span>
+        <span style="color:#75715e"># f(n-1) = f(n-2)+...+f(1)</span>
+        <span style="color:#75715e"># f(n) = 2f(n-1)</span>
+        <span style="color:#75715e"># f(1) = 1 n=1</span>
+        <span style="color:#66d9ef">if</span> number <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+        ret <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">2</span>,number<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+            ret <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> a
+            a<span style="color:#f92672">=</span>ret
+        <span style="color:#66d9ef">return</span> ret
+        <span style="color:#75715e">#return pow(2,number-1)</span>
+</code></pre></div>
     </div>
     <div class="post-footer">
       
