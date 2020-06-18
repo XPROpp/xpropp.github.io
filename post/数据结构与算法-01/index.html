@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>数据结构与算法  01 // My New Hugo Site</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://xpropp.github.io/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="数据结构与算法  01"/>
+<meta name="twitter:description" content="数据结构与算法-Day01 算法概述   算法 - 前序
+# 全场动作必须跟我整齐划一，来，我们一起来做一道题 若n1&#43;n2&#43;n3=1000,且n1^2&#43;n2^2=n3^2(n1,n2,n3为自然数),求出所有n1、n2、n3可能的组合 # 思路1: n1 = 0 n2 = 0 n3 = 0 判断n1&#43;n2&#43;n3是否等于1000,之后变n3=1,n3=2,n3=3,... 然后再变n2 那如果变为 n1&#43;n2&#43;n3=2000 了呢？ # 思路1代码实现 import time start_time = time.time() for n1 in range(0,1001): for n2 in range(0,1001): for n3 in range(0,1001): if n1 &#43; n2 &#43; n3 == 1000 and n1**2 &#43; n2**2 == n3**2: print(&#39;[%d,%d,%d]&#39; % (n1,n2,n3)) end_time = time.time() print(&#39;执行时间:%.2f&#39; % (end_time-start_time))   算法概念"/>
+
+    <meta property="og:title" content="数据结构与算法  01" />
+<meta property="og:description" content="数据结构与算法-Day01 算法概述   算法 - 前序
+# 全场动作必须跟我整齐划一，来，我们一起来做一道题 若n1&#43;n2&#43;n3=1000,且n1^2&#43;n2^2=n3^2(n1,n2,n3为自然数),求出所有n1、n2、n3可能的组合 # 思路1: n1 = 0 n2 = 0 n3 = 0 判断n1&#43;n2&#43;n3是否等于1000,之后变n3=1,n3=2,n3=3,... 然后再变n2 那如果变为 n1&#43;n2&#43;n3=2000 了呢？ # 思路1代码实现 import time start_time = time.time() for n1 in range(0,1001): for n2 in range(0,1001): for n3 in range(0,1001): if n1 &#43; n2 &#43; n3 == 1000 and n1**2 &#43; n2**2 == n3**2: print(&#39;[%d,%d,%d]&#39; % (n1,n2,n3)) end_time = time.time() print(&#39;执行时间:%.2f&#39; % (end_time-start_time))   算法概念" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://xpropp.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-01/" />
+<meta property="article:published_time" content="2020-06-18T16:55:39+08:00" />
+<meta property="article:modified_time" content="2020-06-18T16:55:39+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://xpropp.github.io"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>My New Hugo Site</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">数据结构与算法  01</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jun 18, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          7 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h1 id="数据结构与算法-day01"><strong>数据结构与算法-Day01</strong></h1>
+<h2 id="算法概述"><strong>算法概述</strong></h2>
+<ul>
+<li>
+<p><strong>算法 - 前序</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 全场动作必须跟我整齐划一，来，我们一起来做一道题</span>
+<span style="color:#960050;background-color:#1e0010">若</span>n1<span style="color:#f92672">+</span>n2<span style="color:#f92672">+</span>n3<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>,<span style="color:#960050;background-color:#1e0010">且</span>n1<span style="color:#f92672">^</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span>n2<span style="color:#f92672">^</span><span style="color:#ae81ff">2</span><span style="color:#f92672">=</span>n3<span style="color:#f92672">^</span><span style="color:#ae81ff">2</span>(n1,n2,n3为自然数),<span style="color:#960050;background-color:#1e0010">求出所有</span>n1<span style="color:#960050;background-color:#1e0010">、</span>n2<span style="color:#960050;background-color:#1e0010">、</span>n3可能的组合
+  
+<span style="color:#75715e"># 思路1:</span>
+n1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+n2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+n3 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#960050;background-color:#1e0010">判断</span>n1<span style="color:#f92672">+</span>n2<span style="color:#f92672">+</span>n3是否等于1000,<span style="color:#960050;background-color:#1e0010">之后变</span>n3<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>,n3<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>,n3<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>,<span style="color:#f92672">...</span> <span style="color:#960050;background-color:#1e0010">然后再变</span>n2
+<span style="color:#960050;background-color:#1e0010">那如果变为</span> n1<span style="color:#f92672">+</span>n2<span style="color:#f92672">+</span>n3<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span> <span style="color:#960050;background-color:#1e0010">了呢？</span>
+  
+<span style="color:#75715e"># 思路1代码实现</span>
+<span style="color:#f92672">import</span> time
+  
+start_time <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+<span style="color:#66d9ef">for</span> n1 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+    <span style="color:#66d9ef">for</span> n2 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+        <span style="color:#66d9ef">for</span> n3 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+            <span style="color:#66d9ef">if</span> n1 <span style="color:#f92672">+</span> n2 <span style="color:#f92672">+</span> n3 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">and</span> n1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> n2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> n3<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>:
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;[</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">,</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">,</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">]&#39;</span> <span style="color:#f92672">%</span> (n1,n2,n3))
+end_time <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;执行时间:</span><span style="color:#e6db74">%.2f</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> (end_time<span style="color:#f92672">-</span>start_time))
+</code></pre></div><ul>
+<li>
+<p><strong>算法概念</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">是指解题方案的准确而完整的描述，是一系列解决问题的清晰指令，算法代表着用系统的方法描述解决问题的策略机制。也就是说，能够对一定规范的输入，在有限时间内获得所要求的输出</span>
+    
+<span style="color:#75715e"># 总结</span>
+<span style="color:#960050;background-color:#1e0010">程序</span> <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">算法</span> <span style="color:#f92672">+</span> <span style="color:#960050;background-color:#1e0010">数据结构</span>
+</code></pre></div></li>
+<li>
+<p><strong>算法五大特性</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">输入</span>   <span style="color:#f92672">--</span> <span style="color:#960050;background-color:#1e0010">具有</span><span style="color:#ae81ff">0</span><span style="color:#960050;background-color:#1e0010">个或多个输入</span>
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">输出</span>   <span style="color:#f92672">--</span> <span style="color:#960050;background-color:#1e0010">至少由</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">个或者多个输出</span>
+<span style="color:#ae81ff">3</span>) <span style="color:#960050;background-color:#1e0010">有穷性</span> <span style="color:#f92672">--</span> <span style="color:#960050;background-color:#1e0010">算法执行的步骤是有限的</span>
+<span style="color:#ae81ff">4</span>) <span style="color:#960050;background-color:#1e0010">确定性</span> <span style="color:#f92672">--</span> <span style="color:#960050;background-color:#1e0010">每个计算步骤无二义性</span>
+<span style="color:#ae81ff">5</span>) <span style="color:#960050;background-color:#1e0010">可行性</span> <span style="color:#f92672">--</span> <span style="color:#960050;background-color:#1e0010">每个计算步骤能够在有限的时间内完成</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="时间复杂度概述"><strong>时间复杂度概述</strong></h2>
+<ul>
+<li>
+<p><strong>时间复杂度 - 前序</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 各位，一万年太久，只争朝夕，来提升一下上题的效率吧！！！</span>
+<span style="color:#66d9ef">for</span> n1 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+    <span style="color:#66d9ef">for</span> n2 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+        n3 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">-</span> n1 <span style="color:#f92672">-</span> n2
+        <span style="color:#66d9ef">if</span> n1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> n2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> n3<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;[</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">,</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">,</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">]&#39;</span><span style="color:#f92672">%</span>(n1,n2,n3))
+  
+<span style="color:#75715e"># 总结与思考</span>
+<span style="color:#960050;background-color:#1e0010">解决同一个问题有多种算法</span>,<span style="color:#960050;background-color:#1e0010">但是效率有区别</span>,<span style="color:#960050;background-color:#1e0010">那么如何衡量呢？</span>
+<span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">）执行时间反应算法效率</span> <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">绝对靠谱吗？</span>
+<span style="color:#960050;background-color:#1e0010">不是绝对靠谱</span>: <span style="color:#960050;background-color:#1e0010">因机器配置有高有低</span>,<span style="color:#960050;background-color:#1e0010">不能冒然绝对去做衡量</span>
+    
+<span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">）那如何衡量更靠谱？？？</span>
+<span style="color:#960050;background-color:#1e0010">运算数量</span> <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">执行步骤的数量</span>
+</code></pre></div></li>
+<li>
+<p><strong>时间复杂度概念</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">同一个算法，由于机器配置差异</span>,<span style="color:#960050;background-color:#1e0010">每台机器执行的总时间不同</span>,<span style="color:#960050;background-color:#1e0010">但是执行基本运算的数量大体相同，所以把算法执行步骤的数量称为时间复杂度</span>
+  
+<span style="color:#75715e"># 总结</span>
+<span style="color:#960050;background-color:#1e0010">时间复杂度：程序执行步骤的数量</span>
+</code></pre></div></li>
+<li>
+<p><strong>时间复杂度 - 大O表示法前序</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">################################################################</span>
+<span style="color:#66d9ef">for</span> n1 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+    <span style="color:#66d9ef">for</span> n2 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+        <span style="color:#66d9ef">for</span> n3 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+            <span style="color:#66d9ef">if</span> n1 <span style="color:#f92672">+</span> n2 <span style="color:#f92672">+</span> n3 <span style="color:#f92672">==</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">and</span> n1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> n2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> n3<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>:
+                <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;[</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">,</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">,</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">]&#39;</span> <span style="color:#f92672">%</span> (n1,n2,n3))
+<span style="color:#75715e">################################################################</span>
+                  
+<span style="color:#75715e"># 计算时间复杂度 - 执行计算步骤的次数</span>
+T <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+T <span style="color:#f92672">=</span> n <span style="color:#f92672">*</span> n <span style="color:#f92672">*</span> n <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+T(n) <span style="color:#f92672">=</span> n <span style="color:#f92672">**</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>  <span style="color:#f92672">--&gt;</span> <span style="color:#960050;background-color:#1e0010">则时间复杂度为</span>T(n) <span style="color:#960050;background-color:#1e0010">及</span> n<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+  
+    
+<span style="color:#75715e"># 渐近函数 - 数学概念</span>
+<span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">函数</span><span style="color:#ae81ff">1</span>: T(n) <span style="color:#f92672">=</span> k<span style="color:#f92672">*</span> g(n) <span style="color:#f92672">+</span> c <span style="color:#f92672">---&gt;</span> k为系数,c为常数
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">函数</span><span style="color:#ae81ff">2</span>: g(n) <span style="color:#f92672">=</span> n <span style="color:#f92672">**</span> <span style="color:#ae81ff">3</span>
+<span style="color:#960050;background-color:#1e0010">特点</span>: <span style="color:#960050;background-color:#1e0010">在趋向无穷的极限意义下，函数</span>T(n)<span style="color:#960050;background-color:#1e0010">的增长速度收到函数</span>g(n)<span style="color:#960050;background-color:#1e0010">的约束，也为函数</span>T(n)<span style="color:#960050;background-color:#1e0010">与函数</span>g(n)<span style="color:#960050;background-color:#1e0010">的特征相似，则称</span> g(n) <span style="color:#960050;background-color:#1e0010">是</span> T(n) <span style="color:#960050;background-color:#1e0010">的渐近函数，大</span>O表示法则使用渐近函数来表示<span style="color:#960050;background-color:#1e0010">，</span>
+<span style="color:#960050;background-color:#1e0010">即</span>: O(g(n)) 
+<span style="color:#960050;background-color:#1e0010">即</span>: O(n<span style="color:#f92672">^</span><span style="color:#ae81ff">3</span>)
+<span style="color:#960050;background-color:#1e0010">即</span>: <span style="color:#960050;background-color:#1e0010">上述时间复杂度为</span> O(n<span style="color:#f92672">^</span><span style="color:#ae81ff">3</span>)
+  
+  
+<span style="color:#75715e"># 总结: 什么是时间复杂度？</span>
+<span style="color:#960050;background-color:#1e0010">衡量标准</span>: <span style="color:#960050;background-color:#1e0010">运算步骤来衡量</span>,n代表解决问题的规模问题,<span style="color:#960050;background-color:#1e0010">对于同一类问题所花费的步骤有一个统一的表示</span>,<span style="color:#960050;background-color:#1e0010">这个</span>T(n)<span style="color:#960050;background-color:#1e0010">为时间复杂度</span>,n<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span><span style="color:#960050;background-color:#1e0010">为它的大</span>O表示法,<span style="color:#960050;background-color:#1e0010">即</span>O(n<span style="color:#f92672">^</span><span style="color:#ae81ff">3</span>)
+</code></pre></div></li>
+<li>
+<p><strong>时间复杂度表示 - 大O表示法</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 1.需要理解</span>
+<span style="color:#960050;background-color:#1e0010">假定计算机执行算法每个基本操作的时间是固定的一个时间单位，则有多少个基本操作就代表会花费多少时间单位。虽然对于不同机器环境切确的时间单位不同，但对于算法进行的基本操作数量在规模数量级上相同，因此可以忽略机器环境影响而客观反映算法的时间效率，用</span><span style="color:#e6db74">&#34;大O记法&#34;</span><span style="color:#960050;background-color:#1e0010">表示</span>
+  
+<span style="color:#75715e"># 2. 需要记忆</span>
+<span style="color:#960050;background-color:#1e0010">时间复杂度：假设存在函数</span>g<span style="color:#960050;background-color:#1e0010">，使得算法</span>A处理规模为n的问题所用时间为T(n)<span style="color:#f92672">=</span>O(g(n))<span style="color:#960050;background-color:#1e0010">，则称</span>O(g(n))<span style="color:#960050;background-color:#1e0010">为算法</span>A的渐近时间复杂度<span style="color:#960050;background-color:#1e0010">，简称时间复杂度，记为</span>T(n)
+  
+<span style="color:#75715e"># 3. 大O表示法</span>
+<span style="color:#960050;background-color:#1e0010">对算法进行特别具体细致分析虽然好，但实践中实际价值有限。对我们来说算法的时间性质和空间性质最重要的是数量级和趋势，这些是分析算法效率的主要部分。</span>
+<span style="color:#960050;background-color:#1e0010">所以忽略系数，忽略常数，比如</span><span style="color:#ae81ff">5</span><span style="color:#f92672">*</span>n<span style="color:#f92672">^</span><span style="color:#ae81ff">2</span> <span style="color:#960050;background-color:#1e0010">和</span> <span style="color:#ae81ff">100</span><span style="color:#f92672">*</span>n<span style="color:#f92672">^</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">属于一个量级，时间复杂度为</span>O(n<span style="color:#f92672">^</span><span style="color:#ae81ff">2</span>)
+</code></pre></div></li>
+<li>
+<p><strong>时间复杂度分类</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 1.分类</span>
+<span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">）最优时间复杂度</span> <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">最少需要多少个步骤</span>
+<span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">）最坏时间复杂度</span> <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">最多需要多少个步骤</span>
+<span style="color:#ae81ff">3</span><span style="color:#960050;background-color:#1e0010">）平均时间复杂度</span> <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">平均需要多少个步骤</span>
+<span style="color:#960050;background-color:#1e0010">我们平时所说的时间复杂度</span>,<span style="color:#960050;background-color:#1e0010">指的是最坏时间复杂度</span>
+  
+<span style="color:#75715e"># 2.示例 - 列表元素排序</span>
+[<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">6</span>]   <span style="color:#f92672">--&gt;</span> <span style="color:#960050;background-color:#1e0010">时间复杂度</span>:O(n<span style="color:#f92672">^</span><span style="color:#ae81ff">2</span>)
+[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>]   <span style="color:#f92672">--&gt;</span> <span style="color:#960050;background-color:#1e0010">时间复杂度</span>:O(n)
+      <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> L:
+          <span style="color:#960050;background-color:#1e0010">先扫描一遍</span>,<span style="color:#960050;background-color:#1e0010">若有序直接退出</span>
+          <span style="color:#960050;background-color:#1e0010">时间复杂度变为</span> n
+</code></pre></div></li>
+<li>
+<p><strong>时间复杂度 - 计算规则</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 1. 基本操作,只有常系数，认为其时间复杂度为O(1)</span>
+  <span style="color:#960050;background-color:#1e0010">顺序</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">条件</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">循环</span> <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">所有语言都包括</span>
+  <span style="color:#960050;background-color:#1e0010">顺序</span> <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">基本步骤之间的累加</span>
+  <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;abc&#39;</span>) <span style="color:#f92672">-&gt;</span> O(<span style="color:#ae81ff">1</span>)
+  <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;abc&#39;</span>) <span style="color:#f92672">-&gt;</span> O(<span style="color:#ae81ff">1</span>)
+<span style="color:#75715e"># 2. 循环: 时间复杂度按乘法进行计算</span>
+<span style="color:#75715e"># 3. 分支: 时间复杂度取最大值(哪个分支执行次数多算哪个)</span>
+  
+<span style="color:#75715e"># 练习:请计算如下代码的时间复杂度</span>
+<span style="color:#66d9ef">for</span> n1 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+    <span style="color:#66d9ef">for</span> n2 <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1001</span>):
+        n3 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span> <span style="color:#f92672">-</span> n1 <span style="color:#f92672">-</span> n2
+        <span style="color:#66d9ef">if</span> n1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> n2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> n3<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>:
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#39;[</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">,</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">,</span><span style="color:#e6db74">%d</span><span style="color:#e6db74">]&#39;</span><span style="color:#f92672">%</span>(n1,n2,n3))
+              
+T(n) <span style="color:#f92672">=</span> n <span style="color:#f92672">*</span> n <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span>max(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>))
+T(n) <span style="color:#f92672">=</span> n<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+T(n) <span style="color:#f92672">=</span> n<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+T(n) <span style="color:#f92672">=</span> O(n<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+<span style="color:#960050;background-color:#1e0010">用大</span>O表示法表示为 O(n<span style="color:#f92672">^</span><span style="color:#ae81ff">2</span>)
+</code></pre></div></li>
+<li>
+<p><strong>常见时间复杂度</strong></p>
+<table>
+<thead>
+<tr>
+<th>执行次数</th>
+<th>时间复杂度</th>
+<th>阶</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20（20个基本步骤）</td>
+<td>O(1)</td>
+<td>常数阶</td>
+</tr>
+<tr>
+<td>8n+6</td>
+<td>O(n)</td>
+<td>线性阶</td>
+</tr>
+<tr>
+<td>2n^2 + 4n + 2</td>
+<td>O(n^2)</td>
+<td>平方阶</td>
+</tr>
+<tr>
+<td>8logn + 16</td>
+<td>O(logn)</td>
+<td>对数阶</td>
+</tr>
+<tr>
+<td>4n + 3nlogn + 22</td>
+<td>O(nlog(n))</td>
+<td>nlog阶</td>
+</tr>
+<tr>
+<td>2n^3 + 2n^2 + 4</td>
+<td>O(n^3)</td>
+<td>立方阶</td>
+</tr>
+<tr>
+<td>2 ^ n</td>
+<td>O(2^n)</td>
+<td>指数阶</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 所消耗的时间从小到大</span>
+O(<span style="color:#ae81ff">1</span>)<span style="color:#f92672">&lt;</span>O(logn)<span style="color:#f92672">&lt;</span>O(n)<span style="color:#f92672">&lt;</span>O(nlogn)<span style="color:#f92672">&lt;</span>O(n<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">&lt;</span>O(n<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)<span style="color:#f92672">&lt;</span>O(<span style="color:#ae81ff">2</span><span style="color:#f92672">**</span>n)<span style="color:#f92672">&lt;</span>O(n<span style="color:#960050;background-color:#1e0010">!</span>)<span style="color:#f92672">&lt;</span>O(n<span style="color:#f92672">**</span>n)
+  
+<span style="color:#75715e"># 练习: 写出如下的时间复杂度</span>
+O(<span style="color:#ae81ff">5</span>)          <span style="color:#f92672">--&gt;</span> O(<span style="color:#ae81ff">1</span>)
+O(<span style="color:#ae81ff">2</span>n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)       <span style="color:#f92672">--&gt;</span> O(n)
+O(n<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">+</span>n<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)   <span style="color:#f92672">--&gt;</span> O(n<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+O(<span style="color:#ae81ff">3</span>n<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)    <span style="color:#f92672">--&gt;</span> O(n<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
+</code></pre></div></li>
+</ul>
+<h2 id="数据结构概述"><strong>数据结构概述</strong></h2>
+<ul>
+<li>
+<p><strong>数据结构</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 1. 思考</span>
+<span style="color:#e6db74">&#34;请利用Python数据类型保存所有学员信息，并通过姓名获取对应学员信息！&#34;</span>
+<span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">列表存</span>: <span style="color:#960050;background-color:#1e0010">时间复杂度</span>O(n),<span style="color:#960050;background-color:#1e0010">因为需要遍历整个列表</span>
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">字典存</span>: <span style="color:#960050;background-color:#1e0010">时间复杂度</span>O(<span style="color:#ae81ff">1</span>),<span style="color:#960050;background-color:#1e0010">直接通过</span>key取值
+    
+<span style="color:#75715e"># 2. 描述</span>
+<span style="color:#960050;background-color:#1e0010">在工作中，我们为了解决问题，需要将数据保存下来，然后根据数据存储方式设计算法进行处理，根据数据的存储方式我们使用不同的算法处理，而我们现在需要考虑算法解决问题的效率问题，所以需要考虑数据究竟如何保存，这就是数据结构。在示例中我们引用列表或字典存储学员信息，而列表和字典只是</span>Python帮我们封装好的两种数据结构而已<span style="color:#960050;background-color:#1e0010">。</span>
+    
+<span style="color:#75715e"># 3. 概念</span>
+<span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">数据是一个抽象的概念，将其进行分类后得到程序设计语言中的基本类型，如：</span>list<span style="color:#960050;background-color:#1e0010">、</span>tuple<span style="color:#960050;background-color:#1e0010">、</span>int等<span style="color:#960050;background-color:#1e0010">。数据元素之间不是独立的，存在特定的关系，这些关系便是结构。数据结构指数据对象中数据元素之间的关系</span>
+<span style="color:#ae81ff">2</span>)Python提供了很多现成的数据结构类型<span style="color:#960050;background-color:#1e0010">，如列表、元组、字典等，无须我们自己去定义，而</span>Python没有定义的<span style="color:#960050;background-color:#1e0010">，就需要我们自己去定义实现这些数据的组织方式，称为</span>Python扩展数据结构<span style="color:#960050;background-color:#1e0010">，如：栈、队列等</span>
+  
+<span style="color:#75715e"># 4. 为什么学习数据结构</span>
+<span style="color:#960050;background-color:#1e0010">实际上，在真正的项目开发中，大部分时间都是</span> <span style="color:#960050;background-color:#1e0010">从数据库取数据</span> <span style="color:#f92672">-&gt;</span> <span style="color:#960050;background-color:#1e0010">数据操作和结构化</span> <span style="color:#f92672">-&gt;</span> <span style="color:#960050;background-color:#1e0010">返回给前端，在数据操作过程中需要合理地抽象，组织、处理数据，如果选用了错误的数据结构，就会造成代码运行低效</span>
+</code></pre></div></li>
+<li>
+<p><strong>数据结构 - 关系</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 1. 逻辑结构</span>
+<span style="color:#960050;background-color:#1e0010">表示数据之间的抽象关系（如邻接关系、从属关系等），按每个元素可能具有的直接前趋数和直接后继数将逻辑结构分为“线性结构”和“非线性结构”两大类</span>
+<span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">线性结构</span>: <span style="color:#960050;background-color:#1e0010">线性结构是</span>n个数据元素的有序集合
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">树形结构</span>: <span style="color:#960050;background-color:#1e0010">树形结构指的是数据元素之间存在着“一对多”的树形关系的数据结构，是一类重要的非线性数据结构。在树形结构中，树根结点没有前驱结点，其余每个结点有且只有一个前驱结点。叶子结点没有后续结点，其余每个结点的后续节点数可以是一个也可以是多个</span>
+<span style="color:#ae81ff">3</span>) <span style="color:#960050;background-color:#1e0010">图状结构</span>: <span style="color:#960050;background-color:#1e0010">图是一种比较复杂的数据结构。在图结构中任意两个元素之间都可能有关系，也就是说这是一种多对多的关系</span>
+<span style="color:#ae81ff">4</span>) <span style="color:#960050;background-color:#1e0010">其他结构</span>: <span style="color:#960050;background-color:#1e0010">除了以上几种常见的逻辑结构外，数据结构中还包含其他的结构，比如集合等。有时根据实际情况抽象的模型不止是简单的某一种，也可能拥有更多的特征</span>
+  
+<span style="color:#75715e"># 2. 存储结构</span>
+<span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">顺序存储</span>: <span style="color:#960050;background-color:#1e0010">顺序存储（</span>Sequential Storage<span style="color:#960050;background-color:#1e0010">）：将数据结构中各元素按照其逻辑顺序存放于存储器一片连续的存储空间中</span>
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">链式存储</span>: <span style="color:#960050;background-color:#1e0010">将数据结构中各元素分布到存储器的不同点，用记录下一个结点位置的方式建立它们之间的联系，由此得到的存储结构为链式存储结构</span>
+</code></pre></div></li>
+<li>
+<p><strong>数据结构+算法总结</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">数据结构只是静态描述了数据元素之间的关系</span>
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">高效的程序需要在数据结构的基础上设计和选择算法</span>
+<span style="color:#ae81ff">3</span>) <span style="color:#960050;background-color:#1e0010">程序</span> <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">数据结构</span> <span style="color:#f92672">+</span> <span style="color:#960050;background-color:#1e0010">算法</span>
+<span style="color:#ae81ff">4</span>) <span style="color:#960050;background-color:#1e0010">算法是为了解决实际问题而设计的，数据结构是算法需要处理的问题载体</span>
+</code></pre></div></li>
+</ul>
+<h2 id="抽象数据类型"><strong>抽象数据类型</strong></h2>
+<ul>
+<li>
+<p><strong>概念</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 1. 定义</span>
+<span style="color:#960050;background-color:#1e0010">抽象数据类型是指一个数学模型以及定义在此数学模型上的一组操作，及把数据类型和数据类型上的运算捆在一起进行封装。引入抽象数据类型的目的是把数据类型的表示和数据类型上的运算的实现与这些数据类型和运算在程序中的引用隔开，使他们相互独立</span>
+  
+<span style="color:#75715e"># 2. 描述</span>
+<span style="color:#960050;background-color:#1e0010">把原有的基本数据和这个数据所支持的操作放到一起，形成一个整体</span>
+  
+<span style="color:#75715e"># 3. 最常用的数据运算</span>
+<span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">插入</span>
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">删除</span>
+<span style="color:#ae81ff">3</span>) <span style="color:#960050;background-color:#1e0010">修改</span>
+<span style="color:#ae81ff">4</span>) <span style="color:#960050;background-color:#1e0010">查找</span>
+<span style="color:#ae81ff">5</span>) <span style="color:#960050;background-color:#1e0010">排序</span>
+</code></pre></div></li>
+</ul>
+<h2 id="线性表---顺序表"><strong>线性表 - 顺序表</strong></h2>
+<ul>
+<li>
+<p><strong>顺序表 - 概念</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">在程序中，经常需要将一组</span>(<span style="color:#960050;background-color:#1e0010">通常是同为某个类型</span>)<span style="color:#960050;background-color:#1e0010">的数据元素作为整体管理和使用，需要创建这种元素组，用变量记录它们，传进传出函数等。一组数据中包含的元素个数可能发生变化（可以增加或删除元素）。对于这种需求，最简单的解决方案是将这样的一组元素看成一个序列，用元素在序列里的位置和顺序，表示实际应用中的某种有意义的信息，或者表示数据之间的某种关系。</span>
+  
+<span style="color:#960050;background-color:#1e0010">这样的一组序列元素的组织形式，我们将其抽象为</span><span style="color:#e6db74">&#34;线性表&#34;</span>,<span style="color:#960050;background-color:#1e0010">一个线性表是某类元素的一个集合，和记录着元素之间的一种顺序关系。线性表是最基本的数据结构之一</span>
+  
+<span style="color:#960050;background-color:#1e0010">根据线性表的实际存储方式，分为两种实现模型：</span>
+<span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">顺序表</span>: <span style="color:#960050;background-color:#1e0010">将元素顺序地存放在一块连续地存储区域里</span>,<span style="color:#960050;background-color:#1e0010">元素间的顺序关系由它们的存储顺序表示</span>
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">链表</span>: <span style="color:#960050;background-color:#1e0010">将元素存放在通过链接构造起来的一系列存储块中</span>
+</code></pre></div><ul>
+<li>
+<p><strong>顺序表的基本形式</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">基本形式</span>: <span style="color:#960050;background-color:#1e0010">数据元素本身连续存储</span>,<span style="color:#960050;background-color:#1e0010">每个元素所占存储单元大小固定相同</span>
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">元素外置</span>: <span style="color:#960050;background-color:#1e0010">数据元素不连续存储，地址单元连续存储</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="线性表---链表"><strong>线性表 - 链表</strong></h2>
+<ul>
+<li>
+<p><strong>定义</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">和线性结构不同，链式结构内存不连续的，而是一个个串起来的，这个时候就需要每个链接表的节点保存一个指向下一个节点的指针</span>
+<span style="color:#960050;background-color:#1e0010">顺序表的构建需要预先知道数据大小来申请连续的存储空间，而在进行扩充时又需要进行数据的搬迁，使用起来部灵活，而链表结构可以充分利用计算机的内存空间，实现灵活的内存动态管理</span>
+</code></pre></div></li>
+<li>
+<p><strong>示例 - 强化理解</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">将线性表</span>L<span style="color:#f92672">=</span>(a0,a1,<span style="color:#960050;background-color:#1e0010">……</span>,an<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#960050;background-color:#1e0010">中各元素分布在存储器的不同存储块，称为结点，每个结点（尾节点除外）中都持有一个指向下一个节点的引用，这样所得到的存储结构为链表结构</span>
+</code></pre></div><p><img src="./img/data1.png" alt="链表结构"></p>
+</li>
+<li>
+<p><strong>单链表 - 代码实现</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 单链表</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span>(object):
+    <span style="color:#e6db74">&#34;&#34;&#34;节点&#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">def</span> __init__(self,elem):
+        self<span style="color:#f92672">.</span>elem <span style="color:#f92672">=</span> elem
+        self<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> None
+  
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SingleLinkList</span>(object):
+    <span style="color:#e6db74">&#34;&#34;&#34;单链表&#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">def</span> __init__(self,node<span style="color:#f92672">=</span>None):
+        <span style="color:#75715e"># 私有属性,自己内部函数使用，对外不使用</span>
+        self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_empty</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;链表是否为空&#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>head <span style="color:#f92672">==</span> None
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">length</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;链表长度&#34;&#34;&#34;</span>
+        <span style="color:#75715e"># current游标,用来移动遍历节点</span>
+        current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#75715e"># count记录数量</span>
+        count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">while</span> current <span style="color:#f92672">!=</span> None:
+            count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">return</span> count
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">travel</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;遍历整个链表&#34;&#34;&#34;</span>
+        current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#66d9ef">while</span> current <span style="color:#f92672">!=</span> None:
+            <span style="color:#66d9ef">print</span>(current<span style="color:#f92672">.</span>elem,end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+            current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">print</span>()
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(self,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;链表头部添加元素&#34;&#34;&#34;</span>
+        node <span style="color:#f92672">=</span> Node(item)
+        node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">append</span>(self,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;链表尾部添加元素&#34;&#34;&#34;</span>
+        node <span style="color:#f92672">=</span> Node(item)
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_empty():
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node
+        <span style="color:#66d9ef">else</span>:
+            current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+            <span style="color:#66d9ef">while</span> current<span style="color:#f92672">.</span>next <span style="color:#f92672">!=</span> None:
+                current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+            current<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert</span>(self,position,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;指定位置添加元素
+</span><span style="color:#e6db74">        :param pos 从0开始
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">if</span> position <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>:
+            self<span style="color:#f92672">.</span>add(item)
+        <span style="color:#66d9ef">elif</span> position <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>length()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+            self<span style="color:#f92672">.</span>append(item)
+        <span style="color:#66d9ef">else</span>:
+            pre <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+            count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">while</span> count <span style="color:#f92672">&lt;</span> (position<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+                count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+                pre <span style="color:#f92672">=</span> pre<span style="color:#f92672">.</span>next
+            <span style="color:#75715e"># 当循环结束后,pre指向pos-1的位置</span>
+            node <span style="color:#f92672">=</span> Node(item)
+            node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> pre<span style="color:#f92672">.</span>next
+            pre<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove</span>(self,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;删除节点
+</span><span style="color:#e6db74">        特殊情况:1.空链表
+</span><span style="color:#e6db74">        特殊情况:2.恰巧删除头节点
+</span><span style="color:#e6db74">        特殊情况:3.只有1个节点
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        pre <span style="color:#f92672">=</span> None
+        <span style="color:#66d9ef">while</span> current <span style="color:#f92672">!=</span> None:
+            <span style="color:#66d9ef">if</span> current<span style="color:#f92672">.</span>elem <span style="color:#f92672">==</span> item:
+                <span style="color:#75715e"># 先判断此节点是否为头节点</span>
+                <span style="color:#66d9ef">if</span> current <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head:
+                    self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+                <span style="color:#66d9ef">else</span>:
+                    pre<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+                <span style="color:#66d9ef">break</span>
+            <span style="color:#66d9ef">else</span>:
+                pre <span style="color:#f92672">=</span> current
+                current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">search</span>(self,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;查找节点是否存在&#34;&#34;&#34;</span>
+        current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#66d9ef">while</span> current <span style="color:#f92672">!=</span> None:
+            <span style="color:#66d9ef">if</span> current<span style="color:#f92672">.</span>elem <span style="color:#f92672">==</span> item:
+                <span style="color:#66d9ef">return</span> True
+            <span style="color:#66d9ef">else</span>:
+                current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">return</span> False
+  
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    sll <span style="color:#f92672">=</span> SingleLinkList()
+    <span style="color:#66d9ef">print</span>(sll<span style="color:#f92672">.</span>is_empty())
+    <span style="color:#66d9ef">print</span>(sll<span style="color:#f92672">.</span>length())
+  
+    sll<span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>)
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">2</span>)
+    <span style="color:#66d9ef">print</span>(sll<span style="color:#f92672">.</span>is_empty())
+    <span style="color:#66d9ef">print</span>(sll<span style="color:#f92672">.</span>length())
+  
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">3</span>)
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">4</span>)
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">5</span>)
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">6</span>)
+    sll<span style="color:#f92672">.</span>insert(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;我是-1&#39;</span>)
+    sll<span style="color:#f92672">.</span>insert(<span style="color:#ae81ff">2</span>,<span style="color:#e6db74">&#39;我是2&#39;</span>)
+    sll<span style="color:#f92672">.</span>travel()
+    sll<span style="color:#f92672">.</span>remove(<span style="color:#ae81ff">4</span>)
+    sll<span style="color:#f92672">.</span>travel()
+</code></pre></div></li>
+<li>
+<p><strong>单向循环链表 - 代码实现</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 单向循环链表</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span>(object):
+    <span style="color:#e6db74">&#34;&#34;&#34;节点&#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">def</span> __init__(self,elem):
+        self<span style="color:#f92672">.</span>elem <span style="color:#f92672">=</span> elem
+        self<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> None
+  
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SingleLinkList</span>(object):
+    <span style="color:#e6db74">&#34;&#34;&#34;单向循环链表&#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">def</span> __init__(self,node<span style="color:#f92672">=</span>None):
+        self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node
+        <span style="color:#66d9ef">if</span> node:
+            node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_empty</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;链表是否为空&#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>head <span style="color:#f92672">==</span> None
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">length</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;链表长度&#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_empty():
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#75715e"># current游标,用来移动遍历节点</span>
+        current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#75715e"># count记录数量</span>
+        count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">while</span> current<span style="color:#f92672">.</span>next <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head:
+            count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">return</span> count
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">travel</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;遍历整个链表
+</span><span style="color:#e6db74">        特殊情况1: 空链表
+</span><span style="color:#e6db74">        特殊情况2: 只有1个节点
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_empty():
+            <span style="color:#66d9ef">return</span>
+        current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#66d9ef">while</span> current<span style="color:#f92672">.</span>next <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>head:
+            <span style="color:#66d9ef">print</span>(current<span style="color:#f92672">.</span>elem,end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34; &#34;</span>)
+            current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+        <span style="color:#75715e"># 退出循环,current指向尾节点但未打印</span>
+        <span style="color:#66d9ef">print</span>(current<span style="color:#f92672">.</span>elem)
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(self,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;链表头部添加元素
+</span><span style="color:#e6db74">        特殊情况1: 空链表
+</span><span style="color:#e6db74">        特殊情况2: 只有1个节点
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        node <span style="color:#f92672">=</span> Node(item)
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_empty():
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node
+            node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+        <span style="color:#66d9ef">else</span>:
+            current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+            <span style="color:#66d9ef">while</span> current<span style="color:#f92672">.</span>next <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>head:
+                current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+  
+            <span style="color:#75715e"># 退出循环,current指向尾节点</span>
+            node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node
+            current<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">append</span>(self,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;链表尾部添加元素
+</span><span style="color:#e6db74">        特殊情况1: 空链表
+</span><span style="color:#e6db74">        特殊情况2: 只有1个节点
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        node <span style="color:#f92672">=</span> Node(item)
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_empty():
+            self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> node
+        <span style="color:#66d9ef">else</span>:
+            current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+            <span style="color:#66d9ef">while</span> current<span style="color:#f92672">.</span>next <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>head:
+                current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+            node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+            current<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">insert</span>(self,pos,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;指定位置添加元素
+</span><span style="color:#e6db74">        :param pos 从0开始
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">if</span> pos <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>:
+            self<span style="color:#f92672">.</span>add(item)
+        <span style="color:#66d9ef">elif</span> pos <span style="color:#f92672">&gt;</span> self<span style="color:#f92672">.</span>length()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>:
+            self<span style="color:#f92672">.</span>append(item)
+        <span style="color:#66d9ef">else</span>:
+            pre <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+            count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+            <span style="color:#66d9ef">while</span> count <span style="color:#f92672">&lt;</span> (pos<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>):
+                count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+                pre <span style="color:#f92672">=</span> pre<span style="color:#f92672">.</span>next
+            <span style="color:#75715e"># 当循环结束后,pre指向pos-1的位置</span>
+            node <span style="color:#f92672">=</span> Node(item)
+            node<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> pre<span style="color:#f92672">.</span>next
+            pre<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> node
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">remove</span>(self,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;删除节点
+</span><span style="color:#e6db74">        特殊情况:1.空链表
+</span><span style="color:#e6db74">        特殊情况:2.恰巧删除头节点
+</span><span style="color:#e6db74">        特殊情况:3.只有1个节点
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_empty():
+            <span style="color:#66d9ef">return</span>
+  
+        current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        pre <span style="color:#f92672">=</span> None
+        <span style="color:#66d9ef">while</span> current<span style="color:#f92672">.</span>next <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>head:
+            <span style="color:#66d9ef">if</span> current<span style="color:#f92672">.</span>elem <span style="color:#f92672">==</span> item:
+                <span style="color:#75715e"># 先判断此节点是否为头节点</span>
+                <span style="color:#66d9ef">if</span> current <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head:
+                    <span style="color:#75715e"># 找尾节点</span>
+                    rear <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+                    <span style="color:#66d9ef">while</span> rear<span style="color:#f92672">.</span>next <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>head:
+                        rear <span style="color:#f92672">=</span> rear<span style="color:#f92672">.</span>next
+                    self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+                    rear<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+                <span style="color:#75715e"># 中间节点</span>
+                <span style="color:#66d9ef">else</span>:
+                    pre<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+                <span style="color:#66d9ef">return</span>
+            <span style="color:#66d9ef">else</span>:
+                pre <span style="color:#f92672">=</span> current
+                current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+        <span style="color:#75715e"># 退出循环,currentl指向尾节点</span>
+        <span style="color:#66d9ef">if</span> current<span style="color:#f92672">.</span>elem <span style="color:#f92672">==</span> item:
+            <span style="color:#66d9ef">if</span> current <span style="color:#f92672">==</span> self<span style="color:#f92672">.</span>head:
+                self<span style="color:#f92672">.</span>head <span style="color:#f92672">=</span> None
+            <span style="color:#66d9ef">else</span>:
+                pre<span style="color:#f92672">.</span>next <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+  
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">search</span>(self,item):
+        <span style="color:#e6db74">&#34;&#34;&#34;查找节点是否存在&#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_empty():
+            <span style="color:#66d9ef">return</span> False
+        current <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>head
+        <span style="color:#66d9ef">while</span> current <span style="color:#f92672">!=</span> self<span style="color:#f92672">.</span>head:
+            <span style="color:#66d9ef">if</span> current<span style="color:#f92672">.</span>elem <span style="color:#f92672">==</span> item:
+                <span style="color:#66d9ef">return</span> True
+            <span style="color:#66d9ef">else</span>:
+                current <span style="color:#f92672">=</span> current<span style="color:#f92672">.</span>next
+        <span style="color:#66d9ef">if</span> current<span style="color:#f92672">.</span>elem <span style="color:#f92672">==</span> item:
+            <span style="color:#66d9ef">return</span> True
+        <span style="color:#66d9ef">return</span> False
+  
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    sll <span style="color:#f92672">=</span> SingleLinkList()
+    <span style="color:#66d9ef">print</span>(sll<span style="color:#f92672">.</span>is_empty())
+    <span style="color:#66d9ef">print</span>(sll<span style="color:#f92672">.</span>length())
+  
+    sll<span style="color:#f92672">.</span>add(<span style="color:#ae81ff">8</span>)
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">1</span>)
+    <span style="color:#66d9ef">print</span>(sll<span style="color:#f92672">.</span>is_empty())
+    <span style="color:#66d9ef">print</span>(sll<span style="color:#f92672">.</span>length())
+  
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">2</span>)
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">3</span>)
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">4</span>)
+    sll<span style="color:#f92672">.</span>append(<span style="color:#ae81ff">5</span>)
+    sll<span style="color:#f92672">.</span>insert(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#e6db74">&#39;我是-1&#39;</span>)
+    sll<span style="color:#f92672">.</span>insert(<span style="color:#ae81ff">2</span>,<span style="color:#e6db74">&#39;我是2&#39;</span>)
+    sll<span style="color:#f92672">.</span>travel()
+    sll<span style="color:#f92672">.</span>remove(<span style="color:#ae81ff">4</span>)
+    sll<span style="color:#f92672">.</span>travel()
+</code></pre></div></li>
+</ul>
+<h2 id="栈">栈</h2>
+<ul>
+<li>
+<p><strong>定义</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">栈是限制在一端进行插入操作和删除操作的线性表（俗称堆栈），允许进行操作的一端称为</span><span style="color:#e6db74">&#34;栈顶&#34;</span><span style="color:#960050;background-color:#1e0010">，另一固定端称为</span><span style="color:#e6db74">&#34;栈底&#34;</span><span style="color:#960050;background-color:#1e0010">，当栈中没有元素时称为</span><span style="color:#e6db74">&#34;空栈&#34;</span>
+</code></pre></div></li>
+<li>
+<p><strong>特点</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">栈只能在一端进行数据操作</span>
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">栈模型具有先进后出或者叫做后进先出的规律</span>
+</code></pre></div></li>
+</ul>
+<p><img src="./img/data2.png" alt="栈"></p>
+<p><strong>栈的代码实现 - 顺序存储</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 栈的操作有入栈（压栈），出栈（弹栈），判断栈是否为空等操作</span>
+<span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">sstack.py  栈模型的顺序存储
+</span><span style="color:#e6db74">重点代码
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">思路:
+</span><span style="color:#e6db74">1. 利用列表完成顺序存储,但是列表功能多,不符合栈模型特点
+</span><span style="color:#e6db74">2. 使用类将列表封装,提供符合栈特点的接口方法
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+<span style="color:#75715e"># 顺序栈模型</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Stack</span>(object):
+    <span style="color:#66d9ef">def</span> __init__(self):
+        <span style="color:#75715e"># 开辟一个顺序存储的模型空间</span>
+        <span style="color:#75715e"># 列表的尾部表示栈顶</span>
+        self<span style="color:#f92672">.</span>_elems <span style="color:#f92672">=</span> []
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_empty</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;判断栈是否为空&#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_elems <span style="color:#f92672">==</span> []
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">push</span>(self,val):
+        <span style="color:#e6db74">&#34;&#34;&#34;入栈&#34;&#34;&#34;</span>
+        self<span style="color:#f92672">.</span>_elems<span style="color:#f92672">.</span>append(val)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pop</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;出栈&#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_empty():
+            <span style="color:#66d9ef">raise</span> StackError(<span style="color:#e6db74">&#34;pop from empty stack&#34;</span>)
+        <span style="color:#75715e"># 弹出一个值并返回</span>
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_elems<span style="color:#f92672">.</span>pop()
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">top</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;查看栈顶元素&#34;&#34;&#34;</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>is_empty():
+            <span style="color:#66d9ef">raise</span> StackError(<span style="color:#e6db74">&#34;Stack is empty&#34;</span>)
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_elems[<span style="color:#ae81ff">0</span>]
+
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    st <span style="color:#f92672">=</span> Stack()
+    st<span style="color:#f92672">.</span>push(<span style="color:#ae81ff">1</span>)
+    st<span style="color:#f92672">.</span>push(<span style="color:#ae81ff">3</span>)
+    st<span style="color:#f92672">.</span>push(<span style="color:#ae81ff">5</span>)
+    <span style="color:#66d9ef">print</span>(st<span style="color:#f92672">.</span>top())
+    <span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> st<span style="color:#f92672">.</span>is_empty():
+        <span style="color:#66d9ef">print</span>(st<span style="color:#f92672">.</span>pop())
+</code></pre></div><h2 id="队列"><strong>队列</strong></h2>
+<ul>
+<li>
+<p><strong>定义</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">队列是限制在两端进行插入操作和删除操作的线性表，允许进行存入操作的一端称为</span><span style="color:#e6db74">&#34;队尾&#34;</span><span style="color:#960050;background-color:#1e0010">，允许进行删除操作的一端称为</span><span style="color:#e6db74">&#34;队头&#34;</span>
+</code></pre></div></li>
+<li>
+<p><strong>特点</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">队列只能在队头和队尾进行数据操作</span>
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">队列模型具有先进先出或者叫做后进后出的规律</span>
+</code></pre></div></li>
+</ul>
+<p><img src="./img/data3.png" alt="队列"></p>
+<ul>
+<li>
+<p><strong>队列的代码实现 - 顺序存储</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 队列的操作有入队，出队，判断队列的空满等操作</span>
+<span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">思路分析:
+</span><span style="color:#e6db74">1. 基于列表完成数据的存储
+</span><span style="color:#e6db74">2. 通过封装功能完成队列的基本行为
+</span><span style="color:#e6db74">3. 无论那边做对头/队尾 都会在操作中有内存移动
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+  
+<span style="color:#75715e"># 队列操作</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SQueue</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>_elems <span style="color:#f92672">=</span> []
+  
+    <span style="color:#75715e"># 判断队列是否为空</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">is_empty</span>(self):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_elems <span style="color:#f92672">==</span> []
+  
+    <span style="color:#75715e"># 入队</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">enqueue</span>(self,val):
+        self<span style="color:#f92672">.</span>_elems<span style="color:#f92672">.</span>append(val)
+  
+    <span style="color:#75715e"># 出队</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">dequeue</span>(self):
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> self<span style="color:#f92672">.</span>_elems:
+            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">Exception</span>(<span style="color:#e6db74">&#34;Queue is empty&#34;</span>)
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_elems<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">0</span>) <span style="color:#75715e"># 弹出第一个数据</span>
+  
+  
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    sq <span style="color:#f92672">=</span> SQueue()
+    sq<span style="color:#f92672">.</span>enqueue(<span style="color:#ae81ff">10</span>)
+    sq<span style="color:#f92672">.</span>enqueue(<span style="color:#ae81ff">20</span>)
+    sq<span style="color:#f92672">.</span>enqueue(<span style="color:#ae81ff">30</span>)
+    <span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> sq<span style="color:#f92672">.</span>is_empty():
+        <span style="color:#66d9ef">print</span>(sq<span style="color:#f92672">.</span>dequeue())
+</code></pre></div><h2 id="递归"><strong>递归</strong></h2>
+</li>
+<li>
+<p><strong>递归定义</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">递归用一种通俗的话来说就是自己调用自己，但是需要分解它的参数，让它解决一个更小一点的问题，当问题小到一定规模的时候，需要一个递归出口返回</span>
+</code></pre></div></li>
+<li>
+<p><strong>递归示例</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 求阶乘</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fact</span>(n):
+    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">return</span> n <span style="color:#f92672">*</span> fact(n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</code></pre></div></li>
+<li>
+<p><strong>递归的特点</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#ae81ff">1</span>) <span style="color:#960050;background-color:#1e0010">递归必须包含一个基本的出口，否则就会无限递归，最终导致栈溢出，比如这里就是</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#960050;background-color:#1e0010">返回</span> <span style="color:#ae81ff">1</span>
+  
+<span style="color:#ae81ff">2</span>) <span style="color:#960050;background-color:#1e0010">递归必须包含一个可以分解的问题，要想求得</span> fact(n)<span style="color:#960050;background-color:#1e0010">，就需要用</span> n <span style="color:#f92672">*</span> fact(n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+  
+<span style="color:#ae81ff">3</span>) <span style="color:#960050;background-color:#1e0010">递归必须必须要向着递归出口靠近，这里每次递归调用都会</span> n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">，向着递归出口</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#960050;background-color:#1e0010">靠近</span>
+</code></pre></div></li>
+<li>
+<p><strong>深入理解 - 递归到底是如何工作的</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 案例：终端输出 1-n</span>
+<span style="color:#75715e"># 1.正常人写法</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f1</span>(n):
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>):
+        <span style="color:#66d9ef">print</span>(i)
+          
+<span style="color:#75715e"># 2. 递归版本1</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">recu_one</span>(n):
+    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+        recu_one(n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        <span style="color:#66d9ef">print</span>(n)
+          
+<span style="color:#75715e"># 3. 思考如下递归执行过程？</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">recu_two</span>(n):
+    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">print</span>(n)
+        recu_two(n<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</code></pre></div></li>
+<li>
+<p><strong>递归原理</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">计算机内部使用调用栈来实现递归，后进先出，每当进入递归函数的时候，系统都会为当前函数开辟内存保存当前变量值等信息，每个调用栈之间的数据互不影响，新调用的函数，入栈的时候会放在栈顶</span>
+</code></pre></div></li>
+</ul>
+<h2 id="今日作业"><strong>今日作业</strong></h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 1. 面试题: 小明爬楼梯，一次只能上1级或者2级台阶，一共有n级台阶，一共有多少种方法上台阶？</span>
+<span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">思路提示
+</span><span style="color:#e6db74">如果有一级台阶，方法有1种
+</span><span style="color:#e6db74">如果有两级台阶，方法有2种
+</span><span style="color:#e6db74">如果台阶数再增加，大于三个台阶以后，可以认为是只有一二级台阶的一个重复实现
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+<span style="color:#75715e"># 2. 用链式存储实现栈</span>
+
+<span style="color:#75715e"># 3. 用链式存储实现队列</span>
+<span style="color:#75715e"># 写法1</span>
+<span style="color:#75715e"># def go_step(n):</span>
+<span style="color:#75715e">#     if n == 1:</span>
+<span style="color:#75715e">#         return 1</span>
+<span style="color:#75715e">#     elif n == 2:</span>
+<span style="color:#75715e">#         return 2</span>
+<span style="color:#75715e">#     else:</span>
+<span style="color:#75715e">#         return go_step(n - 1) + go_step(n - 2)</span>
+
+<span style="color:#75715e"># 写法2</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">go_step</span>(n):
+    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2</span>:
+        <span style="color:#66d9ef">return</span> n
+    <span style="color:#66d9ef">return</span> go_step(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> go_step(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>)
+
+
+<span style="color:#66d9ef">print</span>(go_step(<span style="color:#ae81ff">10</span>))
+<span style="color:#960050;background-color:#1e0010">运行结果：</span>
+<span style="color:#f92672">/</span>usr<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>python3<span style="color:#f92672">.</span><span style="color:#ae81ff">6</span> <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>tarena<span style="color:#f92672">/</span><span style="color:#ae81ff">1908</span><span style="color:#f92672">/</span>datastructure<span style="color:#f92672">/</span>day02<span style="color:#f92672">/</span><span style="color:#ae81ff">01</span>_steps<span style="color:#f92672">.</span>py
+<span style="color:#ae81ff">89</span>
+
+Process finished <span style="color:#66d9ef">with</span> exit code <span style="color:#ae81ff">0</span>
+</code></pre></div>
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

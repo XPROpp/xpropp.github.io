@@ -6,10 +6,20 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2020 16:49:34 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2020 16:55:39 +0800</lastBuildDate>
     
 	<atom:link href="https://xpropp.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>数据结构与算法  01</title>
+      <link>https://xpropp.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-01/</link>
+      <pubDate>Thu, 18 Jun 2020 16:55:39 +0800</pubDate>
+      
+      <guid>https://xpropp.github.io/post/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95-01/</guid>
+      <description>数据结构与算法-Day01 算法概述   算法 - 前序
+# 全场动作必须跟我整齐划一，来，我们一起来做一道题 若n1+n2+n3=1000,且n1^2+n2^2=n3^2(n1,n2,n3为自然数),求出所有n1、n2、n3可能的组合 # 思路1: n1 = 0 n2 = 0 n3 = 0 判断n1+n2+n3是否等于1000,之后变n3=1,n3=2,n3=3,... 然后再变n2 那如果变为 n1+n2+n3=2000 了呢？ # 思路1代码实现 import time start_time = time.time() for n1 in range(0,1001): for n2 in range(0,1001): for n3 in range(0,1001): if n1 + n2 + n3 == 1000 and n1**2 + n2**2 == n3**2: print(&amp;#39;[%d,%d,%d]&amp;#39; % (n1,n2,n3)) end_time = time.time() print(&amp;#39;执行时间:%.2f&amp;#39; % (end_time-start_time))   算法概念</description>
+    </item>
     
     <item>
       <title>斐波那契数列</title>
