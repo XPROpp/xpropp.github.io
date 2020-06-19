@@ -6,10 +6,22 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jun 2020 16:55:39 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jun 2020 09:35:54 +0800</lastBuildDate>
     
 	<atom:link href="https://xpropp.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>数组中只出现一次的数字</title>
+      <link>https://xpropp.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</link>
+      <pubDate>Fri, 19 Jun 2020 09:35:54 +0800</pubDate>
+      
+      <guid>https://xpropp.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</guid>
+      <description>本题知识点： 数组
+题目描述:
+一个整型数组里除了两个数字之外，其他的数字都出现了两次。请写程序找出这两个只出现一次的数字。
+# -*- coding:utf-8 -*- class Solution: # 返回[a,b] 其中ab是出现一次的两个数字 def FindNumsAppearOnce(self, array): # write code here # 如果两个数相同，那么这两个树的异或操作就等于0 if len(array) &amp;lt; 2: return None twoNumXor = None for num in array: if twoNumXor == None: twoNumXor = num else: twoNumXor = twoNumXor ^ num count = 0 while twoNumXor % 2 == 0: twoNumXor = twoNumXor &amp;gt;&amp;gt; 1 count += 1 mask = 1 &amp;lt;&amp;lt; count fristNum = None secondNum = None for num in array: if mask &amp;amp; num == 0: if fristNum == None: fristNum = num else: fristNum = fristNum ^ num else: if secondNum == None: secondNum = num else: secondNum = secondNum ^ num return fristNum,secondNum </description>
+    </item>
     
     <item>
       <title>数据结构与算法  01</title>
