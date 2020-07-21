@@ -6,10 +6,20 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jul 2020 09:22:53 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2020 09:30:46 +0800</lastBuildDate>
     
 	<atom:link href="https://xpropp.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>快速排序</title>
+      <link>https://xpropp.github.io/post/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Tue, 21 Jul 2020 09:30:46 +0800</pubDate>
+      
+      <guid>https://xpropp.github.io/post/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</guid>
+      <description>快速排序： 快速排序（Quicksort），又称划分交换排序（purtiton-exchange sort）,通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都以另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。 步骤为：
+ 从数列中挑出一个元素，称为“基准”（pirot）。 重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面，（相同的数可以放在任意一边）。在这个区分结果之后，改基准就处于数列的中间位置，这个称为分区（partition）操作。 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排列。  递归的最底部情形，是数列的大小是0或者1，也就是永远都已经被排序好了，虽然一直递归下去，但是这个算法总会结束，因为在每每次的迭代（iteration）中，它至少会把一个元素摆到它最后的位置去。 # coding: utf-8 def quick_sort(alist, frist, last): &amp;#39;&amp;#39;&amp;#39;快速排序&amp;#39;&amp;#39;&amp;#39; if frist &amp;gt;= last: return mid_value = alist[frist] low = frist high = last while low &amp;lt; high: # 左移 while low &amp;lt; high and alist[high] &amp;gt;= mid_value: high -= 1 alist[low] = alist[high] # 右移 while low &amp;lt; high and alist[low] &amp;lt; mid_value: low += 1 alist[high] = alist[low] # 从循环退出是 low = high alist[low] = mid_value # 对low左边的列表执行快速排序 quick_sort(alist, frist, low - 1) # 对low右边的列表执行快速排序 quick_sort(alist, low + 1, last) if __name__ == &amp;#39;__main__&amp;#39;: li = [54, 26, 93, 17, 77, 31, 44, 55, 20] print(li) quick_sort(li, 0, len(li) - 1) print(li) </description>
+    </item>
     
     <item>
       <title>矩形覆盖</title>
